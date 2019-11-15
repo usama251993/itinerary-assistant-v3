@@ -1,0 +1,27 @@
+<div class="container">
+  <mat-card class="blue-card">
+    <mat-card-header>
+      <mat-card-title>
+        <span>{{ componentStrings.cardTitle }}</span>
+      </mat-card-title>
+      <mat-card-subtitle>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div class="content">
+        <p *ngFor="let eachContent of componentStrings.cardContent">{{ eachContent }}</p>
+      </div>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <div class="button-holder">
+        <button mat-flat-button
+          (click)="goHome()">
+          <mat-icon>home</mat-icon>
+          <!-- <span>{{ componentStrings.cardAction | uppercase }}</span> -->
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,18 @@
+<mat-toolbar color="primary"
+  class="mat-elevation-z4">
+  <mat-toolbar-row>
+    <div class="toolbar-row">
+      <div class="title">
+        <span (click)="goHome()">{{ componentStrings.toolbar.headingV2 }}</span>
+      </div>
+      <div class="spacer"></div>
+
+      <!-- Theme toggle -->
+      <div class="toggle">
+        <mat-slide-toggle color="accent"
+          [checked]="isDarkTheme | async"
+          (change)="toggleDarkTheme($event.checked)">Dark Theme</mat-slide-toggle>
+      </div>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

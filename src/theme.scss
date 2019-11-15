@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$ia-app-primary: mat-palette($mat-indigo, 500);
+$ia-app-accent: mat-palette($mat-deep-orange, 500);
+$ia-app-warn: mat-palette($mat-red, A700);
+
+$ia-app-theme: mat-light-theme($ia-app-primary, $ia-app-accent, $ia-app-warn);
+
+@include angular-material-theme($ia-app-theme);
+
+*.ia-dark-theme {
+  color: $light-primary-text;
+  $ia-dark-primary: mat-palette($mat-amber, 500);
+  $ia-dark-accent: mat-palette($mat-cyan, A700);
+  $ia-dark-warn: mat-palette($mat-deep-orange, A400);
+  $ia-dark-theme: mat-dark-theme($ia-dark-primary, $ia-dark-accent, $ia-dark-warn);
+
+  @include angular-material-theme($ia-dark-theme);
+}

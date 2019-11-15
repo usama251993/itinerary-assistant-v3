@@ -1,0 +1,17 @@
+<div [ngClass]="{ 'ia-dark-theme' : isDarkTheme | async }">
+  <div class="app-container mat-app-background">
+    <!-- <div class="header-holder">
+      <app-ia-header></app-ia-header>
+    </div>
+    <div class="content-holder">
+      <router-outlet></router-outlet>
+    </div> -->
+    <!-- <router-outlet></router-outlet> -->
+    <mat-sidenav-container>
+      <mat-sidenav></mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

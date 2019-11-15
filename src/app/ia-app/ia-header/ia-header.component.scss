@@ -1,0 +1,38 @@
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+mat-toolbar {
+  mat-toolbar-row {
+    height: unset !important;
+    flex: 1;
+    div.toolbar-row {
+      flex-direction: row;
+      align-items: center;
+      flex: 1;
+      div.title {
+        padding: 1rem 0rem;
+        span {
+          cursor: pointer;
+        }
+      }
+      div.spacer {
+        flex: 1;
+      }
+      div.toggle {
+        padding: 1rem 0rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 419px) {
+  mat-toolbar {
+    mat-toolbar-row {
+      div.toolbar-row {
+        flex-direction: column;
+      }
+    }
+  }
+}
