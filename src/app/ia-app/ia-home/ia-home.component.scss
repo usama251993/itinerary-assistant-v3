@@ -1,0 +1,54 @@
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+div.container {
+  // Ripple Layout
+  // flex-direction: row;
+  // justify-content: space-around;
+  // flex-flow: row wrap;
+
+  // div.button-left,
+  // div.button-right {
+  //   justify-content: center;
+  //   align-items: center;
+  //   cursor: pointer;
+  //   flex: 1;
+  //   min-width: 150px;
+  //   padding: 3rem;
+  // }
+
+  // Button Layout
+  div.button-holder {
+    padding: 1rem;
+
+    div.button {
+      margin: 1rem;
+    }
+  }
+
+  // Card Layout
+  // div.card-holder {
+  //   justify-content: space-around;
+  //   flex-flow: row wrap;
+
+  //   mat-card {
+  //     // display: flex;
+  //     // flex-direction: column;
+  //     // justify-content: space-between;
+  //     margin: 1rem;
+  //     min-width: 20rem;
+  //     max-width: 20rem;
+  //     cursor: pointer;
+
+  //     mat-card-header,
+  //     mat-card-content {
+  //       display: flex;
+  //       flex-direction: column;
+  //       justify-content: center;
+  //       align-items: center;
+  //     }
+  //   }
+  // }
+}

@@ -1,0 +1,17 @@
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+div.container {
+  justify-content: center;
+  align-items: center;
+
+  div.calendar-holder {
+    width: 20rem;
+
+    mat-calendar {
+      flex: 1;
+    }
+  }
+}

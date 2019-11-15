@@ -1,0 +1,31 @@
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+div.form-holder {
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    mat-card {
+      // min-width: 10rem;
+      // max-width: 25rem;
+
+      mat-card-content {
+        display: flex;
+        flex-direction: column;
+        mat-form-field {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+        }
+
+        div.optional-field-group {
+          flex-flow: row wrap;
+        }
+      }
+    }
+  }
+}

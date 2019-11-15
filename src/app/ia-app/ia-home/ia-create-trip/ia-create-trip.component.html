@@ -1,0 +1,123 @@
+<div class="form-holder">
+  <form (ngSubmit)="createTrip()"
+    [formGroup]="createTripForm">
+    <mat-card>
+      <mat-card-header>
+
+        <mat-card-title>
+          <span>{{ componentStrings.cardTitle }}</span>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <!-- <span>{{ componentStrings.mandatoryFieldString }}</span> -->
+        </mat-card-subtitle>
+
+      </mat-card-header>
+      <mat-card-content>
+
+        <mat-form-field appearance="outline">
+          <mat-label>
+            <span>{{ componentStrings.formField.sourceCity + ' ' + componentStrings.formField.mandatoryIndicator }}</span>
+          </mat-label>
+          <input matInput
+            type="text"
+            autofocus="true"
+            color="primary"
+            formControlName="sourceCity" />
+
+          <mat-error *ngIf="createTripForm.get('sourceCity').hasError('required')">
+            <span>{{ componentStrings.formField.sourceCityError }}</span>
+          </mat-error>
+
+          <button mat-button
+            mat-icon-button
+            matSuffix
+            type="button"
+            *ngIf="createTripForm.get('sourceCity').value"
+            (click)="clearInput(createTripForm.get('sourceCity'))">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>
+            <span>{{ componentStrings.formField.startDate + ' ' + componentStrings.formField.mandatoryIndicator }}</span>
+          </mat-label>
+          <input matInput
+            [matDatepicker]="startDatePicker"
+            [min]="today"
+            [placeholder]="componentStrings.formField.startDate + ' ' + componentStrings.formField.mandatoryIndicator"
+            formControlName="startDate">
+          <mat-datepicker-toggle matSuffix
+            [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker
+            disabled="false"></mat-datepicker>
+
+          <mat-error *ngIf="createTripForm.get('startDate').hasError('required')">
+            <span>{{ componentStrings.formField.startDateError }}</span>
+          </mat-error>
+          <mat-error *ngIf="createTripForm.get('startDate').hasError('invalidDate')">
+            <span>{{ componentStrings.formField.invalidDateError }}</span>
+          </mat-error>
+        </mat-form-field>
+
+        <div class="optional-field-group">
+
+          <mat-form-field appearance="outline">
+            <mat-label>
+              <span>{{ componentStrings.formField.endDate }}</span>
+            </mat-label>
+            <input matInput
+              [matDatepicker]="endDatePicker"
+              [min]="createTripForm.get('startDate').value"
+              [placeholder]="componentStrings.formField.endDate"
+              formControlName="endDate">
+            <mat-datepicker-toggle matSuffix
+              [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker
+              [dateClass]="highlightEndDate"
+              disabled="false"></mat-datepicker>
+
+            <mat-error *ngIf="createTripForm.get('endDate').hasError('invalidDate')">
+              <span>{{ componentStrings.formField.invalidDateError }}</span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>{{ componentStrings.formField.tripDays }}</mat-label>
+            <input matInput
+              type="number"
+              min="1"
+              formControlName="tripDays" />
+
+            <button mat-button
+              mat-icon-button
+              matSuffix
+              *ngIf="createTripForm.get('tripDays').value"
+              type="button"
+              (click)="clearInput(createTripForm.get('tripDays'))">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+
+        </div>
+
+
+      </mat-card-content>
+      <mat-card-actions>
+
+        <div class="button-holder">
+          <div class="button"
+            id="create-trip">
+            <button mat-flat-button
+              type="submit"
+              color="primary"
+              [disabled]="!createTripForm.valid">
+              <span>Create Trip</span>
+            </button>
+          </div>
+        </div>
+
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

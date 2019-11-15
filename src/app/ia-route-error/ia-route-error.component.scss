@@ -1,0 +1,53 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+div.container {
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 1rem;
+  background-color: mat-color($mat-grey, 900);
+
+  mat-card.blue-card {
+    padding: 0rem;
+    border-radius: 0.75rem;
+    font-weight: bold;
+
+    mat-card-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: mat-color($mat-red, 900);
+      color: mat-color($mat-grey, 50);
+      padding: 1rem !important;
+      margin: 0rem !important;
+      border-radius: 0.75rem 0.75rem 0rem 0rem;
+      mat-card-title {
+        padding: 1rem !important;
+        margin: 0rem !important;
+      }
+    }
+    mat-card-content {
+      background-color: mat-color($mat-red, 500);
+      padding: 1rem !important;
+      margin: 0rem !important;
+    }
+    mat-card-actions {
+      background-color: mat-color($mat-red, 900);
+      color: mat-color($mat-grey, 50);
+      border-radius: 0rem 0rem 0.75rem 0.75rem;
+      padding: 1rem !important;
+      margin: 0rem !important;
+    }
+
+    div.button-holder {
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

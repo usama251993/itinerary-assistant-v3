@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="calendar-holder">
+    <mat-calendar #viewCalendar
+      [selected]="calendarDates['startDate']"
+      [minDate]="calendarDates['startDate']"
+      [maxDate]="calendarDates['endDate']"
+      (selectedChange)="dateChanged($event)"></mat-calendar>
+  </div>
+</div>
