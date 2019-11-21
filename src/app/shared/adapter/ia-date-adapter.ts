@@ -2,23 +2,19 @@ import { NativeDateAdapter, MatDateFormats } from '@angular/material';
 
 export class IaDateAdapter extends NativeDateAdapter {
 
-  dateOptions: { year: string, month: string, day: string, weekday: string } = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    weekday: 'long'
-  };
-
   format(date: Date, displayFormat: Object): string {
     if (displayFormat !== 'input') {
-      let day: string = date.getDate().toString();
-      day = +day < 10 ? '0' + day : day;
-      let month: string = (date.getMonth() + 1).toString();
-      month = +month < 10 ? '0' + month : month;
-      let year = date.getFullYear();
-      return `${day}-${month}-${year}`;
+      return date.toLocaleDateString('en-IN', {
+        year: 'numeric',
+        month: 'short'
+      });
     } else {
-      return date.toLocaleDateString('en-IN', this.dateOptions);
+      return date.toLocaleDateString('en-IN', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long'
+      });
     }
   }
 }

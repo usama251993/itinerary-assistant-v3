@@ -35,6 +35,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IaFormBuilderService } from './shared/services/ia-form-builder.service';
 import { IaAppStateService } from './shared/services/ia-app-state.service';
 import { IaAppStringconstantsService } from './shared/services/ia-app-stringconstants.service';
+import { LayoutModule } from '@angular/cdk/layout';
+import { IaViewDayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-day.component';
+import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-stay/ia-view-stay.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { IaAppStringconstantsService } from './shared/services/ia-app-stringcons
     IaLoadTripComponent,
     IaViewTripComponent,
     IaRouteErrorComponent,
+    IaViewDayComponent,
+    IaViewStayComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +68,8 @@ import { IaAppStringconstantsService } from './shared/services/ia-app-stringcons
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    MatSidenavModule
+    MatSidenavModule,
+    LayoutModule
   ],
   providers: [
     IaThemeService,

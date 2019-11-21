@@ -18,3 +18,7 @@ $ia-app-theme: mat-light-theme($ia-app-primary, $ia-app-accent, $ia-app-warn);
 
   @include angular-material-theme($ia-dark-theme);
 }
+
+$primary: mat-color($ia-app-primary);
+$accent: mat-color($ia-app-accent);
+$warn: mat-color($ia-app-warn);
