@@ -50,6 +50,7 @@
           <mat-datepicker-toggle matSuffix
             [for]="startDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #startDatePicker
+            [touchUi]="isMobile"
             disabled="false"></mat-datepicker>
 
           <mat-error *ngIf="createTripForm.get('startDate').hasError('required')">
@@ -74,6 +75,7 @@
             <mat-datepicker-toggle matSuffix
               [for]="endDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #endDatePicker
+              [touchUi]="isMobile"
               [dateClass]="highlightEndDate"
               disabled="false"></mat-datepicker>
 

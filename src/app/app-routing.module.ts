@@ -6,6 +6,8 @@ import { IaLoadTripComponent } from './ia-app/ia-home/ia-load-trip/ia-load-trip.
 import { IaRouteErrorComponent } from './ia-route-error/ia-route-error.component';
 import { IaHomeComponent } from './ia-app/ia-home/ia-home.component';
 import { IaViewTripComponent } from './ia-app/ia-home/ia-view-trip/ia-view-trip.component';
+import { IaViewDayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-day.component';
+import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-stay/ia-view-stay.component';
 
 
 const routes: Routes = [
@@ -25,12 +27,14 @@ const routes: Routes = [
       // Load
       { path: 'load', component: IaLoadTripComponent },
 
-      // View
-      {
-        path: 'view', component: IaViewTripComponent, children: [
-          // {path: 'trip', component: }
-        ]
-      }
+      // View Trip
+      { path: 'view', component: IaViewTripComponent },
+
+      // View Day
+      { path: 'view/day/:date', component: IaViewDayComponent },
+
+      // View Stay
+      { path: 'view/day/:date/stay/:stay', component: IaViewStayComponent }
     ]
   },
 

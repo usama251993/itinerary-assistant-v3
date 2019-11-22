@@ -16,11 +16,11 @@ export class IaAppStringconstantsService {
     this.appStrings['header']['toolbar']['headingV2'] = 'Itinerary Assistant v2';
     this.appStrings['header']['toolbar']['themeToggleSwitch'] = 'Dark Theme';
 
-    // ia-app
-    this.appStrings['app'] = {};
-    this.appStrings['app']['buttonHolder'] = {}
-    this.appStrings['app']['buttonHolder']['createTrip'] = 'Create Trip';
-    this.appStrings['app']['buttonHolder']['loadTrip'] = 'Load Trip';
+    // ia-home
+    this.appStrings['home'] = {};
+    this.appStrings['home']['buttonHolder'] = {}
+    this.appStrings['home']['buttonHolder']['createTrip'] = 'Create Trip';
+    this.appStrings['home']['buttonHolder']['loadTrip'] = 'Load Trip';
 
     // ia-create-trip
     this.appStrings['createTrip'] = {};
@@ -37,6 +37,11 @@ export class IaAppStringconstantsService {
     this.appStrings['createTrip']['formField']['tripDays'] = 'Trip Days';
     this.appStrings['createTrip']['formButton'] = {};
     this.appStrings['createTrip']['formButton']['createTrip'] = 'Create Trip';
+
+    // ia-view-trip
+    this.appStrings['viewTrip'] = {};
+    this.appStrings['viewTrip']['button'] = {};
+    this.appStrings['viewTrip']['button']['editDay'] = 'Edit Day Details';
 
     // ia-route-error
     this.appStrings['routeError'] = {};

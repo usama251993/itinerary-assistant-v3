@@ -1,9 +1,44 @@
 <div class="container">
-  <div class="calendar-holder">
-    <mat-calendar #viewCalendar
-      [selected]="calendarDates['startDate']"
-      [minDate]="calendarDates['startDate']"
-      [maxDate]="calendarDates['endDate']"
-      (selectedChange)="dateChanged($event)"></mat-calendar>
-  </div>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title></mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-calendar [selected]="selectedDay"
+        [minDate]="calendarDates['startDate']"
+        [maxDate]="calendarDates['endDate']"
+        [dateClass]="dateClass"
+        (selectedChange)="dateChanged($event)"></mat-calendar>
+    </mat-card-content>
+    <mat-card-actions></mat-card-actions>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        <div class="card-title">
+          <span>{{ selectedDay.toLocaleDateString('en-IN', localeDateOptions) }}</span>
+        </div>
+      </mat-card-title>
+      <mat-card-subtitle></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content></mat-card-content>
+    <mat-card-actions>
+      <div class="button-holder">
+        <div class="button">
+          <button type="button"
+            mat-flat-button
+            color="primary"
+            (click)="editDay(selectedDay)">
+            {{ componentStrings.button.editDay }}
+          </button>
+        </div>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
 import { IaFormBuilderService } from '../../../shared/services/ia-form-builder.service';
 import { IaAppStringconstantsService } from '../../../shared/services/ia-app-stringconstants.service';
@@ -7,6 +7,7 @@ import { IaAppStateService } from '../../../shared/services/ia-app-state.service
 import { Router, ActivatedRoute } from '@angular/router';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { IaDateAdapter, IA_DATE_FORMATS } from 'src/app/shared/adapter/ia-date-adapter';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 
 @Component({
@@ -31,20 +32,30 @@ export class IaCreateTripComponent implements OnInit {
     private route: ActivatedRoute,
     private stringConstants: IaAppStringconstantsService,
     private tripFormBuilder: IaFormBuilderService,
-    private stateService: IaAppStateService
+    private stateService: IaAppStateService,
+    private breakPoint: BreakpointObserver,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {
 
     this.componentStrings = this.stringConstants.appStrings['createTrip'];
 
-    this.createTripForm = new FormGroup({});
+    this.createTripForm = this.formBuilder.group({});
     this.createTripForm = this.tripFormBuilder.createTripForm;
     this.today = this.tripFormBuilder.today;
 
+    this.resetEndDateParams();
+    this.handleValueChanges();
+
+  }
+
+  resetEndDateParams() {
     this.createTripForm.get('endDate').setValue(this.getOffsetDate(this.createTripForm.get('startDate').value, 1), { emitEvent: false });
     this.createTripForm.get('tripDays').setValue(1, { emitEvent: false });
+  }
 
+  handleValueChanges() {
     this.createTripForm.get('startDate').valueChanges.subscribe((startDate: Date) => {
       this.createTripForm.get('endDate').setValue(this.getOffsetDate(this.createTripForm.get('startDate').value, this.createTripForm.get('tripDays').value), { emitEvent: false });
     });
@@ -52,7 +63,7 @@ export class IaCreateTripComponent implements OnInit {
     this.createTripForm.get('endDate').valueChanges.subscribe((endDate: Date) => {
       let startDate = this.createTripForm.get('startDate').value;
       this.createTripForm.get('tripDays').setValue(Math.ceil(Math.abs(
-        endDate.valueOf() - startDate.valueOf()
+        endDate.getTime() - startDate.getTime()
       ) / (86400000)), { emitEvent: false });
     });
 
@@ -62,13 +73,16 @@ export class IaCreateTripComponent implements OnInit {
       this.createTripForm.get('endDate').setValue(this.getOffsetDate(startDate, tripDays), { emitEvent: false });
       this.createTripForm.get('tripDays').setValue(tripDays, { emitEvent: false });
     });
-
   }
 
   getOffsetDate(startDate: Date, offsetDays: number): Date {
     let newEndDate = new Date(startDate);
     newEndDate.setDate(startDate.getDate() + offsetDays);
     return newEndDate;
+  }
+
+  get isMobile(): boolean {
+    return this.breakPoint.isMatched('(max-width: 767px)');
   }
 
   createTrip() {

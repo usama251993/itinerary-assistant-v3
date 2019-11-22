@@ -18,10 +18,7 @@ export class IaHomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.componentStrings = this.stringConstants.appStrings['app'];
-    console.log(this.route);
-    console.log(this.router);
-
+    this.componentStrings = this.stringConstants.appStrings['home'];
   }
 
   createTrip() {
