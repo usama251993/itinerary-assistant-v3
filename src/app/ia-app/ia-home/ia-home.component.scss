@@ -5,28 +5,28 @@ div {
 
 div.container {
   // Ripple Layout
-  // flex-direction: row;
-  // justify-content: space-around;
-  // flex-flow: row wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: row wrap;
 
-  // div.button-left,
-  // div.button-right {
-  //   justify-content: center;
-  //   align-items: center;
-  //   cursor: pointer;
-  //   flex: 1;
-  //   min-width: 150px;
-  //   padding: 3rem;
-  // }
+  div.button,
+  div.button {
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    flex: 1;
+    min-width: 150px;
+    padding: 3rem;
+  }
 
   // Button Layout
-  div.button-holder {
-    padding: 1rem;
+  // div.button-holder {
+  //   padding: 1rem;
 
-    div.button {
-      margin: 1rem;
-    }
-  }
+  //   div.button {
+  //     margin: 1rem;
+  //   }
+  // }
 
   // Card Layout
   // div.card-holder {

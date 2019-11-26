@@ -7,9 +7,7 @@
         <mat-card-title>
           <span>{{ componentStrings.cardTitle }}</span>
         </mat-card-title>
-        <mat-card-subtitle>
-          <!-- <span>{{ componentStrings.mandatoryFieldString }}</span> -->
-        </mat-card-subtitle>
+        <mat-card-subtitle></mat-card-subtitle>
 
       </mat-card-header>
       <mat-card-content>
@@ -44,7 +42,6 @@
           </mat-label>
           <input matInput
             [matDatepicker]="startDatePicker"
-            [min]="today"
             [placeholder]="componentStrings.formField.startDate + ' ' + componentStrings.formField.mandatoryIndicator"
             formControlName="startDate">
           <mat-datepicker-toggle matSuffix
@@ -85,18 +82,18 @@
           </mat-form-field>
 
           <mat-form-field appearance="outline">
-            <mat-label>{{ componentStrings.formField.tripDays }}</mat-label>
+            <mat-label>{{ componentStrings.formField.tripStayNights }}</mat-label>
             <input matInput
               type="number"
-              min="1"
-              formControlName="tripDays" />
+              min="0"
+              formControlName="tripStayNights" />
 
             <button mat-button
               mat-icon-button
               matSuffix
-              *ngIf="createTripForm.get('tripDays').value"
+              *ngIf="createTripForm.get('tripStayNights').value"
               type="button"
-              (click)="clearInput(createTripForm.get('tripDays'))">
+              (click)="clearInput(createTripForm.get('tripStayNights'))">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>

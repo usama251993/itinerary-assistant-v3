@@ -17,8 +17,6 @@ export class IaViewTripComponent implements OnInit {
 
   selectedDay: Date = new Date(Date.now());
 
-  dateClass: Function = (date: Date) => { };
-
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -36,45 +34,20 @@ export class IaViewTripComponent implements OnInit {
 
 
     if (this.calendarDates['startDate'] === undefined || this.calendarDates['endDate'] === undefined) {
-      this.router.navigate(['../' + 'create'], { relativeTo: this.route });
+      // this.router.navigate(['../' + 'create'], { relativeTo: this.route });
     } else {
       this.selectedDay = this.calendarDates['startDate'];
-      this.dateClass = (date: Date) => {
-
-        return (
-          (date.toDateString() === this.calendarDates['startDate'].toDateString()) || (date.toDateString() === this.calendarDates['endDate'].toDateString())
-        ) ? 'boundary-date' : 'non-boundary-date';
-
-        // let calendarLocalString = date.toLocaleDateString('en-IN', {
-        //   year: 'numeric',
-        //   month: 'numeric',
-        //   day: 'numeric'
-        // });
-        // let startDateLocalString = this.calendarDates['startDate'].toLocaleDateString('en-IN', {
-        //   year: 'numeric',
-        //   month: 'numeric',
-        //   day: 'numeric'
-        // });
-        // let endDateLocalString = this.calendarDates['endDate'].toLocaleDateString('en-IN', {
-        //   year: 'numeric',
-        //   month: 'numeric',
-        //   day: 'numeric'
-        // });
-
-        // return (calendarLocalString === startDateLocalString || calendarLocalString === endDateLocalString) ? 'boundary-date' : '';
-      }
     }
 
   }
 
   dateChanged(dateClicked: Date) {
     this.selectedDay = dateClicked;
-    let selectedDateString: string = this.selectedDay.getFullYear().toString() + '-' + ('00' + (this.selectedDay.getMonth() + 1).toString()).slice(-2) + '-' + ('00' + this.selectedDay.getDate().toString()).slice(-2);
-    // this.router.navigate(['./day/' + selectedDateString], { relativeTo: this.route });
   }
 
   editDay(selectedDate: Date) {
-    console.log(selectedDate)
+    let selectedDateString: string = this.selectedDay.getFullYear().toString() + '-' + ('00' + (this.selectedDay.getMonth() + 1).toString()).slice(-2) + '-' + ('00' + this.selectedDay.getDate().toString()).slice(-2);
+    this.router.navigate(['./day/' + selectedDateString], { relativeTo: this.route });
 
   }
 

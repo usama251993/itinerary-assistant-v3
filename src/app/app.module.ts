@@ -22,6 +22,11 @@ import {
 
 import 'moment';
 
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+
 import { IaAppComponent } from './ia-app/ia-app.component';
 import { IaHomeComponent } from './ia-app/ia-home/ia-home.component';
 import { IaHeaderComponent } from './ia-app/ia-header/ia-header.component';
@@ -69,7 +74,8 @@ import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/i
     MatNativeDateModule,
     MatDividerModule,
     MatSidenavModule,
-    LayoutModule
+    LayoutModule,
+    FontAwesomeModule
   ],
   providers: [
     IaThemeService,
@@ -79,4 +85,10 @@ import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/i
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(far);
+    library.addIconPacks(fas);
+    library.addIconPacks(fab);
+  }
+}

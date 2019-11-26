@@ -14,10 +14,10 @@ export class IaFormBuilderService {
   ) {
 
     this.createTripForm = this.formBuilder.group({
-      sourceCity: this.formBuilder.control({ value: '', disabled: false }, [Validators.required]),
-      startDate: this.formBuilder.control({ value: new Date(Date.now()), disabled: true }, [Validators.required]),
+      sourceCity: this.formBuilder.control({ value: '', disabled: false }),
+      startDate: this.formBuilder.control({ value: new Date(Date.now()), disabled: true }),
       endDate: this.formBuilder.control({ value: '', disabled: true }),
-      tripDays: this.formBuilder.control({ value: '', disabled: false })
+      tripStayNights: this.formBuilder.control({ value: 1, disabled: false })
     });
 
     this.today = new Date(Date.now());

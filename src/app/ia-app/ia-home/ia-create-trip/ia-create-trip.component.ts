@@ -52,26 +52,26 @@ export class IaCreateTripComponent implements OnInit {
 
   resetEndDateParams() {
     this.createTripForm.get('endDate').setValue(this.getOffsetDate(this.createTripForm.get('startDate').value, 1), { emitEvent: false });
-    this.createTripForm.get('tripDays').setValue(1, { emitEvent: false });
+    this.createTripForm.get('tripStayNights').setValue(1, { emitEvent: false });
   }
 
   handleValueChanges() {
     this.createTripForm.get('startDate').valueChanges.subscribe((startDate: Date) => {
-      this.createTripForm.get('endDate').setValue(this.getOffsetDate(this.createTripForm.get('startDate').value, this.createTripForm.get('tripDays').value), { emitEvent: false });
+      this.createTripForm.get('endDate').setValue(this.getOffsetDate(this.createTripForm.get('startDate').value, this.createTripForm.get('tripStayNights').value), { emitEvent: false });
     });
 
     this.createTripForm.get('endDate').valueChanges.subscribe((endDate: Date) => {
       let startDate = this.createTripForm.get('startDate').value;
-      this.createTripForm.get('tripDays').setValue(Math.ceil(Math.abs(
+      this.createTripForm.get('tripStayNights').setValue(Math.ceil(Math.abs(
         endDate.getTime() - startDate.getTime()
       ) / (86400000)), { emitEvent: false });
     });
 
-    this.createTripForm.get('tripDays').valueChanges.subscribe((tripDays: number) => {
-      if (tripDays === null) tripDays = 1;
+    this.createTripForm.get('tripStayNights').valueChanges.subscribe((tripStayNights: number) => {
+      if (tripStayNights === null) tripStayNights = 1;
       let startDate = this.createTripForm.get('startDate').value;
-      this.createTripForm.get('endDate').setValue(this.getOffsetDate(startDate, tripDays), { emitEvent: false });
-      this.createTripForm.get('tripDays').setValue(tripDays, { emitEvent: false });
+      this.createTripForm.get('endDate').setValue(this.getOffsetDate(startDate, tripStayNights), { emitEvent: false });
+      this.createTripForm.get('tripStayNights').setValue(tripStayNights, { emitEvent: false });
     });
   }
 

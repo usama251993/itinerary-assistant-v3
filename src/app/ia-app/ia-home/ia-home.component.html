@@ -1,15 +1,22 @@
 <div class="container">
 
   <!-- Ripple Layout -->
-  <!-- <div class="button-left" matRipple matRippleColor="rippleColor" matRippleCentered="true" (click)="createTrip()">
-      <span>Create Trip</span>
-    </div>
-    <div class="button-right" matRipple matRippleCentered="true" (click)="loadTrip()">
-      <span>Load Trip</span>
-    </div> -->
+  <div class="button"
+    matRipple
+    matRippleColor="rippleColor"
+    matRippleCentered="true"
+    (click)="createTrip()">
+    <span>{{ componentStrings.buttonHolder.createTrip }}</span>
+  </div>
+  <div class="button"
+    matRipple
+    matRippleCentered="true"
+    (click)="loadTrip()">
+    <span>{{ componentStrings.buttonHolder.loadTrip }}</span>
+  </div>
 
   <!-- Button Layout -->
-  <div class="button-holder">
+  <!-- <div class="button-holder">
     <div class="button">
       <button mat-flat-button
         color="primary"
@@ -24,7 +31,7 @@
         {{ componentStrings.buttonHolder.loadTrip }}
       </button>
     </div>
-  </div>
+  </div> -->
 
   <!-- Card Layout -->
   <!-- <div class="card-holder">

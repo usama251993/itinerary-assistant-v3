@@ -34,7 +34,7 @@ export class IaAppStringconstantsService {
     this.appStrings['createTrip']['formField']['startDateError'] = 'Trip Start Date is required';
     this.appStrings['createTrip']['formField']['endDate'] = 'End Date';
     this.appStrings['createTrip']['formField']['invalidDateError'] = 'Enter the date in "MM/DD/YYYY"';
-    this.appStrings['createTrip']['formField']['tripDays'] = 'Trip Days';
+    this.appStrings['createTrip']['formField']['tripStayNights'] = 'Trip Stay Nights';
     this.appStrings['createTrip']['formButton'] = {};
     this.appStrings['createTrip']['formButton']['createTrip'] = 'Create Trip';
 
