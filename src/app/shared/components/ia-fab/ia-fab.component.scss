@@ -1,0 +1,26 @@
+div {
+  display: flex;
+  flex-direction: column;
+}
+
+div.fab-button-holder {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+
+  div.fab-trigger {
+    button {
+      margin: 0.5rem 0rem;
+    }
+  }
+
+  div.fab-button-group {
+    flex-direction: column-reverse;
+
+    button {
+      margin: 0.5rem 0rem;
+    }
+  }
+}

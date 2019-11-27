@@ -5,22 +5,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {
-  MatToolbarModule,
-  MatGridListModule,
-  MatRippleModule,
-  MatButtonModule,
-  MatCardModule,
-  MatIconModule,
-  MatSlideToggleModule,
-  MatInputModule,
-  MatDatepickerModule,
-  MatNativeDateModule,
-  MatDividerModule,
-  MatSidenavModule
-} from '@angular/material';
+// import {
+//   MatToolbarModule,
+//   MatGridListModule,
+//   MatRippleModule,
+//   MatButtonModule,
+//   MatCardModule,
+//   MatIconModule,
+//   MatSlideToggleModule,
+//   MatInputModule,
+//   MatDatepickerModule,
+//   MatNativeDateModule,
+//   MatDividerModule,
+//   MatSidenavModule
+// } from '@angular/material';
 
-import 'moment';
+// import 'moment';
 
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { fas } from "@fortawesome/free-solid-svg-icons";
@@ -40,9 +40,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { IaFormBuilderService } from './shared/services/ia-form-builder.service';
 import { IaAppStateService } from './shared/services/ia-app-state.service';
 import { IaAppStringconstantsService } from './shared/services/ia-app-stringconstants.service';
-import { LayoutModule } from '@angular/cdk/layout';
+// import { LayoutModule } from '@angular/cdk/layout';
 import { IaViewDayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-day.component';
 import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-stay/ia-view-stay.component';
+import { IaFabComponent } from './shared/components/ia-fab/ia-fab.component';
+import { IaMaterialModule } from './ia-material/ia-material.module';
 
 @NgModule({
   declarations: [
@@ -55,27 +57,29 @@ import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/i
     IaViewTripComponent,
     IaRouteErrorComponent,
     IaViewDayComponent,
-    IaViewStayComponent
+    IaViewStayComponent,
+    IaFabComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatRippleModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    MatSlideToggleModule,
-    MatInputModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatDividerModule,
-    MatSidenavModule,
-    LayoutModule,
-    FontAwesomeModule
+    IaMaterialModule,
+    // MatToolbarModule,
+    // MatGridListModule,
+    // MatRippleModule,
+    // MatButtonModule,
+    // MatCardModule,
+    // MatIconModule,
+    // MatSlideToggleModule,
+    // MatInputModule,
+    // MatDatepickerModule,
+    // MatNativeDateModule,
+    // MatDividerModule,
+    // MatSidenavModule,
+    // LayoutModule,
+    // FontAwesomeModule
   ],
   providers: [
     IaThemeService,
@@ -83,12 +87,13 @@ import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/i
     IaFormBuilderService,
     IaAppStringconstantsService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    IaFabComponent
+  ]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIconPacks(far);
-    library.addIconPacks(fas);
-    library.addIconPacks(fab);
+    library.addIconPacks(far, fas, fab);
   }
 }

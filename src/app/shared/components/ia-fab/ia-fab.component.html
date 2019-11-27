@@ -1,0 +1,17 @@
+<div class="fab-button-holder">
+  <div class="fab-trigger">
+    <button mat-fab
+      color="primary"
+      (click)="toggleFab()">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+    </button>
+  </div>
+  <div class="fab-button-group">
+    <button mat-fab
+      *ngFor="let singleButton of fabButtons"
+      color="accent"
+      (click)="singleButton.buttonAction">
+      <fa-icon [icon]="['fas', singleButton.buttonText]"></fa-icon>
+    </button>
+  </div>
+</div>

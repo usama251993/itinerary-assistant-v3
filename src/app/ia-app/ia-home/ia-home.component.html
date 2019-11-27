@@ -6,13 +6,19 @@
     matRippleColor="rippleColor"
     matRippleCentered="true"
     (click)="createTrip()">
-    <span>{{ componentStrings.buttonHolder.createTrip }}</span>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'hiking']"></fa-icon>
+      <span>{{ componentStrings.buttonHolder.createTrip }}</span>
+    </div>
   </div>
   <div class="button"
     matRipple
     matRippleCentered="true"
     (click)="loadTrip()">
-    <span>{{ componentStrings.buttonHolder.loadTrip }}</span>
+    <div class="button-content">
+      <fa-icon [icon]="['fas', 'upload']"></fa-icon>
+      <span>{{ componentStrings.buttonHolder.loadTrip }}</span>
+    </div>
   </div>
 
   <!-- Button Layout -->
@@ -50,3 +56,5 @@
     </div> -->
 
 </div>
+
+<app-ia-fab></app-ia-fab>

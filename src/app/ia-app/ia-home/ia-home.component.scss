@@ -8,6 +8,7 @@ div.container {
   flex-direction: row;
   justify-content: space-around;
   flex-flow: row wrap;
+  min-height: 100vh;
 
   div.button,
   div.button {
@@ -15,8 +16,16 @@ div.container {
     align-items: center;
     cursor: pointer;
     flex: 1;
-    min-width: 150px;
-    padding: 3rem;
+    min-width: 320px;
+    // padding: 3rem;
+    div.button-content {
+      justify-content: center;
+      align-items: center;
+      fa-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+    }
   }
 
   // Button Layout

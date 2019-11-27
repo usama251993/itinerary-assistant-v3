@@ -24,7 +24,7 @@ export class IaAppStringconstantsService {
 
     // ia-create-trip
     this.appStrings['createTrip'] = {};
-    this.appStrings['createTrip']['cardTitle'] = 'New Trip';
+    this.appStrings['createTrip']['cardTitle'] = 'Create a New Trip';
     this.appStrings['createTrip']['mandatoryFieldString'] = 'Fields marked with (*) are mandatory';
     this.appStrings['createTrip']['formField'] = {};
     this.appStrings['createTrip']['formField']['mandatoryIndicator'] = '*';
