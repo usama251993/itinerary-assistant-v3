@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IaThemeService } from './shared/services/ia-theme.service';
-import { IaAppStringconstantsService } from './shared/services/ia-app-stringconstants.service';
+import { IaThemeService } from './shared/services/theming/ia-theme.service';
+import { IaAppStringconstantsService } from './shared/services/string-constants/ia-app-stringconstants.service';
 
 @Component({
   selector: 'app-root',

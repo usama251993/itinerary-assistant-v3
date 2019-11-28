@@ -1,14 +1,19 @@
+<!-- <div id="fab-shadow" *ngIf="fabToggle"></div> -->
+
 <div class="fab-button-holder">
   <div class="fab-trigger">
     <button mat-fab
       color="primary"
-      (click)="toggleFab()">
+      (click)="toggleFab()"
+      [@fabToggle]="fabToggle.fabToggleState.stateString">
       <fa-icon [icon]="['fas', 'plus']"></fa-icon>
     </button>
   </div>
-  <div class="fab-button-group">
+  <div class="fab-button-group"
+    [@fabStagger]="fabToggle.fabButtons.length">
     <button mat-fab
-      *ngFor="let singleButton of fabButtons"
+      mat-stroked-button
+      *ngFor="let singleButton of fabToggle.fabButtons"
       color="accent"
       (click)="singleButton.buttonAction">
       <fa-icon [icon]="['fas', singleButton.buttonText]"></fa-icon>

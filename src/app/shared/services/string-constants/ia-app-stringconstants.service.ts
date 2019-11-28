@@ -22,6 +22,11 @@ export class IaAppStringconstantsService {
     this.appStrings['home']['buttonHolder']['createTrip'] = 'Create Trip';
     this.appStrings['home']['buttonHolder']['loadTrip'] = 'Load Trip';
 
+    // ia-fab
+    this.appStrings['fabStrings'] = {};
+    this.appStrings['fabStrings']['active'] = 'active';
+    this.appStrings['fabStrings']['inactive'] = 'inactive';
+
     // ia-create-trip
     this.appStrings['createTrip'] = {};
     this.appStrings['createTrip']['cardTitle'] = 'Create a New Trip';

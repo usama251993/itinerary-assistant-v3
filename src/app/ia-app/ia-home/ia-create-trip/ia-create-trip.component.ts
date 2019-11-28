@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 
-import { IaFormBuilderService } from '../../../shared/services/ia-form-builder.service';
-import { IaAppStringconstantsService } from '../../../shared/services/ia-app-stringconstants.service';
-import { IaAppStateService } from '../../../shared/services/ia-app-state.service';
+import { IaFormBuilderService } from '../../../shared/services/forms/ia-form-builder.service';
+import { IaAppStringconstantsService } from '../../../shared/services/string-constants/ia-app-stringconstants.service';
+import { IaAppStateService } from '../../../shared/services/state-management/ia-app-state.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
 import { IaDateAdapter, IA_DATE_FORMATS } from 'src/app/shared/adapter/ia-date-adapter';

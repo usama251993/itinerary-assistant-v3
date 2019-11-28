@@ -18,6 +18,7 @@ import {
   MatProgressBarModule,
   MatProgressSpinnerModule,
   MatRadioModule,
+  MatRippleModule,
   MatSelectModule,
   MatSidenavModule,
   MatSlideToggleModule,
@@ -28,7 +29,6 @@ import {
 } from '@angular/material';
 
 import { LayoutModule } from '@angular/cdk/layout';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import 'moment';
 import 'hammerjs';
@@ -53,6 +53,7 @@ import 'hammerjs';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
+    MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
@@ -61,7 +62,6 @@ import 'hammerjs';
     MatTabsModule,
     MatToolbarModule,
     LayoutModule,
-    FontAwesomeModule
   ],
   exports: [
     MatButtonModule,
@@ -80,6 +80,7 @@ import 'hammerjs';
     MatProgressBarModule,
     MatProgressSpinnerModule,
     MatRadioModule,
+    MatRippleModule,
     MatSelectModule,
     MatSidenavModule,
     MatSlideToggleModule,
@@ -88,7 +89,6 @@ import 'hammerjs';
     MatTabsModule,
     MatToolbarModule,
     LayoutModule,
-    FontAwesomeModule
   ]
 })
 

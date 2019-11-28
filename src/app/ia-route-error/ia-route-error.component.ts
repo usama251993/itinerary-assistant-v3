@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { IaAppStringconstantsService } from '../shared/services/ia-app-stringconstants.service';
+import { IaAppStringconstantsService } from '../shared/services/string-constants/ia-app-stringconstants.service';
 
 @Component({
   selector: 'app-ia-route-error',

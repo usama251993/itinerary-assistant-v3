@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { IaAppStringconstantsService } from 'src/app/shared/services/ia-app-stringconstants.service';
-import { IaAppStateService, DateOption } from 'src/app/shared/services/ia-app-state.service';
+import { IaAppStringconstantsService } from 'src/app/shared/services/string-constants/ia-app-stringconstants.service';
+import { IaAppStateService, DateOption } from 'src/app/shared/services/state-management/ia-app-state.service';
 
 @Component({
   selector: 'app-ia-view-trip',
