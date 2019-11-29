@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IaFabService, fabToggle } from '../../services/component-specific/ia-fab.service';
 import { IaFabAnimation } from './ia-fab.animation';
+import { IaAppStateService } from '../../services/state-management/ia-app-state.service';
 
 @Component({
   selector: 'app-ia-fab',
@@ -12,27 +13,30 @@ export class IaFabComponent implements OnInit {
 
   fabToggle = {} as fabToggle;
 
-  constructor(private fabService: IaFabService) { }
+  constructor(private fabService: IaFabService,
+    private stateService: IaAppStateService) { }
 
   ngOnInit() {
     this.fabToggle = this.fabService.fabToggle;
-    this.fabToggle.fabButtons = [];
+    this.fabToggle.fabItems = [];
   }
 
   showButtons() {
     this.fabToggle.fabToggleState.booleanValue = !this.fabToggle.fabToggleState.booleanValue;
+    this.stateService.fabToggleState = this.fabToggle.fabToggleState.booleanValue;
     this.fabToggle.fabToggleState.stateString = this.fabToggle.fabStrings['active'];
-    this.fabToggle.fabButtons = this.fabService.buttonGroup['defaultButtons'];
+    this.fabToggle.fabItems = this.fabService.itemGroup['defaultButtons'];
   }
 
   hideButtons() {
     this.fabToggle.fabToggleState.booleanValue = !this.fabToggle.fabToggleState.booleanValue;
+    this.stateService.fabToggleState = this.fabToggle.fabToggleState.booleanValue;
     this.fabToggle.fabToggleState.stateString = this.fabToggle.fabStrings['inactive'];
-    this.fabToggle.fabButtons = [];
+    this.fabToggle.fabItems = [];
   }
 
   toggleFab() {
-    this.fabToggle.fabButtons.length ? this.hideButtons() : this.showButtons();
+    this.fabToggle.fabItems.length ? this.hideButtons() : this.showButtons();
   }
 
 }

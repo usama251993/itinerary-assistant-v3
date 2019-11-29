@@ -15,12 +15,15 @@ export interface DateOption {
 export class IaAppStateService {
 
   createTripForm: FormGroup = this.formBuilder.group({});
+
   localeDateOptions: DateOption = {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
     weekday: 'long'
   };
+
+  fabToggleState: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
 

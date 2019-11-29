@@ -3,24 +3,75 @@ div {
   flex-direction: column;
 }
 
+div#fab-shadow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.25);
+  z-index: 2;
+}
+
 div.fab-button-holder {
   position: fixed;
   bottom: 1rem;
-  right: 1rem;
+  right: calc(1rem + 8px);
   flex-direction: column-reverse;
   align-items: flex-end;
+  z-index: 3;
 
   div.fab-trigger {
     button {
       margin: 0.5rem 0rem;
     }
   }
+}
 
-  div.fab-button-group {
-    flex-direction: column-reverse;
+div.fab-action-holder {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 3;
 
-    button {
-      margin: 0.5rem 0rem;
+  mat-card {
+    mat-card-content {
+      // div.fab-action-element {
+      //   margin: 0.5rem 0rem;
+      // }
+      mat-list {
+        mat-list-item {
+          cursor: pointer;
+          div.list-item {
+            flex-direction: row;
+            align-items: center;
+
+            fa-icon {
+              margin-right: 1rem;
+            }
+          }
+        }
+      }
+    }
+    mat-card-actions {
+      div.close-button-holder {
+        align-items: flex-end;
+        button.extended-fab-button {
+          width: unset;
+          padding: 0 26px;
+          border-radius: 29px;
+
+          fa-icon {
+            margin-right: 0.75rem;
+          }
+
+          span.extended-fab-button-text {
+            font-weight: 300;
+            letter-spacing: 0.1rem;
+            text-transform: uppercase;
+          }
+        }
+      }
     }
   }
 }

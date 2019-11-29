@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import { IaAppStringconstantsService } from '../string-constants/ia-app-stringconstants.service';
+import { IaAppStateService } from '../state-management/ia-app-state.service';
 
 export interface fabToggle {
-  fabButtons: {
-    buttonText: string,
-    buttonActions: string
+  fabItems: {
+    itemType: string,
+    itemIcon?: string,
+    itemText?: string,
+    itemActions?: string
   }[],
   fabToggleState: {
     booleanValue: boolean,
@@ -20,24 +23,37 @@ export class IaFabService {
 
   fabToggle = {} as fabToggle;
 
-  buttonGroup = {};
+  itemGroup = {};
 
-  constructor(private stringConstants: IaAppStringconstantsService) {
+  constructor(private stringConstants: IaAppStringconstantsService,
+    private stateService: IaAppStateService) {
 
-    this.buttonGroup['defaultButtons'] = [
-      { buttonText: 'paint-roller', buttonActions: 'toggleTheme()' },
-      { buttonText: 'paint-roller', buttonActions: 'toggleTheme()' },
-      { buttonText: 'paint-roller', buttonActions: 'toggleTheme()' },
-      { buttonText: 'paint-roller', buttonActions: 'toggleTheme()' },
-      { buttonText: 'paint-roller', buttonActions: 'toggleTheme()' }
+    this.itemGroup['defaultButtons'] = [
+      {
+        itemType: 'slideToggle',
+        itemText: 'Dark Theme',
+        itemActions: 'toggleTheme'
+      },
+      {
+        itemType: 'iconButton',
+        itemText: 'Home',
+        itemIcon: 'home',
+        itemActions: ''
+      },
+      {
+        itemType: 'iconButton',
+        itemText: 'Help',
+        itemIcon: 'question',
+        itemActions: ''
+      }
     ];
 
-    this.buttonGroup['createButtons'] = [
+    this.itemGroup['createButtons'] = [
 
     ]
 
-    this.fabToggle.fabButtons = this.buttonGroup['defaultButtons'];
-    this.fabToggle.fabToggleState = { booleanValue: false, stateString: '' };
+    this.fabToggle.fabItems = this.itemGroup['defaultButtons'];
+    this.fabToggle.fabToggleState = { booleanValue: this.stateService.fabToggleState, stateString: '' };
     this.fabToggle.fabStrings = this.stringConstants.appStrings['fabStrings'];
     this.fabToggle.fabToggleState.booleanValue = false;
 
