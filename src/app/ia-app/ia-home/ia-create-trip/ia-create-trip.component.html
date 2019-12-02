@@ -20,7 +20,8 @@
             type="text"
             autofocus="true"
             color="primary"
-            formControlName="sourceCity" />
+            formControlName="sourceCity"
+            #sourceCityInput />
 
           <mat-error *ngIf="createTripForm.get('sourceCity').hasError('required')">
             <span>{{ componentStrings.formField.sourceCityError }}</span>

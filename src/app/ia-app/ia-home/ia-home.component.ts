@@ -22,11 +22,13 @@ export class IaHomeComponent implements OnInit {
   }
 
   createTrip() {
-    setTimeout(() => { this.router.navigate(['../' + 'create'], { relativeTo: this.route }); }, 500);
+    // setTimeout(() => { this.router.navigate(['../' + 'create'], { relativeTo: this.route }); }, 500);
+    this.router.navigate(['../' + 'create'], { relativeTo: this.route });
   }
 
   loadTrip() {
-    setTimeout(() => { this.router.navigate(['../' + 'load'], { relativeTo: this.route }); }, 500);
+    // setTimeout(() => { this.router.navigate(['../' + 'load'], { relativeTo: this.route }); }, 500);
+    this.router.navigate(['../' + 'load'], { relativeTo: this.route });
   }
 
 }

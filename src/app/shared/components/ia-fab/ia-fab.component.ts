@@ -2,18 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { IaFabService, fabToggle } from '../../services/component-specific/ia-fab.service';
 import { IaFabAnimation } from './ia-fab.animation';
 import { IaAppStateService } from '../../services/state-management/ia-app-state.service';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ia-fab',
   templateUrl: './ia-fab.component.html',
   styleUrls: ['./ia-fab.component.scss'],
-  animations: IaFabAnimation
+  animations: IaFabAnimation,
 })
 export class IaFabComponent implements OnInit {
 
   fabToggle = {} as fabToggle;
 
-  constructor(private fabService: IaFabService,
+  constructor(private router: Router,
+    private route: ActivatedRoute,
+    private fabService: IaFabService,
     private stateService: IaAppStateService) { }
 
   ngOnInit() {
@@ -37,6 +40,10 @@ export class IaFabComponent implements OnInit {
 
   toggleFab() {
     this.fabToggle.fabItems.length ? this.hideButtons() : this.showButtons();
+  }
+
+  goHome() {
+    this.router.navigate([''], { relativeTo: this.route });
   }
 
 }

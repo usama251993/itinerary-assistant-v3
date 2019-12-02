@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 import { IaFormBuilderService } from '../../../shared/services/forms/ia-form-builder.service';
 import { IaAppStringconstantsService } from '../../../shared/services/string-constants/ia-app-stringconstants.service';
 import { IaAppStateService } from '../../../shared/services/state-management/ia-app-state.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { DateAdapter, MAT_DATE_FORMATS } from '@angular/material';
-import { IaDateAdapter, IA_DATE_FORMATS } from 'src/app/shared/adapter/ia-date-adapter';
-import { BreakpointObserver } from '@angular/cdk/layout';
+import { IaDateAdapter, IA_DATE_FORMATS } from '../../../shared/adapter/ia-date-adapter';
 
 
 @Component({
@@ -21,6 +21,8 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 
 export class IaCreateTripComponent implements OnInit {
+
+  @ViewChild('sourceCityInput', { static: true }) inputRef: ElementRef<HTMLInputElement>;
 
   componentStrings: {} = {};
 
@@ -48,6 +50,7 @@ export class IaCreateTripComponent implements OnInit {
     this.resetEndDateParams();
     this.handleValueChanges();
 
+    this.inputRef.nativeElement.focus();
   }
 
   resetEndDateParams() {

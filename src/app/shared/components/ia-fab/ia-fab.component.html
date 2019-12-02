@@ -9,7 +9,7 @@
       color="primary"
       (click)="toggleFab()"
       *ngIf="!fabToggle.fabToggleState.booleanValue"
-      [@fabToggle]="fabToggle.fabToggleState.stateString">
+      [@fabToggleTrigger]="fabToggle.fabToggleState.stateString">
       <fa-icon [icon]="['fas', 'plus']"></fa-icon>
     </button>
   </div>
@@ -28,10 +28,11 @@
       <mat-card-title>Actions</mat-card-title>
       <mat-card-subtitle></mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content [@fabStagger]="fabToggle.fabItems.length">
+    <mat-card-content [@fabToggleStagger]="fabToggle.fabItems.length">
       <mat-list>
         <mat-list-item matRipple
-          *ngFor="let singleItem of fabToggle.fabItems; let index = index">
+          *ngFor="let singleItem of fabToggle.fabItems; let index = index"
+          (click)="this[fabToggle.fabItems[index]['itemAction']]()">
           <div class="list-item"
             *ngIf="singleItem.itemType === 'iconButton'; else slideToggleButton">
             <fa-icon [icon]="['fas', singleItem.itemIcon]"
@@ -51,12 +52,12 @@
           (click)="singleButton.buttonAction">
           <fa-icon [icon]="['fas', singleButton.buttonicon]"></fa-icon>
           <span>{{ singleButton.buttonText }}</span>
-        </button>
-        <ng-template #slideToggleButton>
-          <mat-slide-toggle>
-            {{ singleButton.buttonText }}
-          </mat-slide-toggle>
-        </ng-template> -->
+          </button>
+          <ng-template #slideToggleButton>
+            <mat-slide-toggle>
+              {{ singleButton.buttonText }}
+            </mat-slide-toggle>
+          </ng-template> -->
         <!-- </div> -->
       </mat-list>
     </mat-card-content>

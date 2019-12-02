@@ -1,6 +1,7 @@
 <!-- <div class="header-holder">
   <app-ia-header></app-ia-header>
 </div> -->
-<div class="content-holder">
-  <router-outlet></router-outlet>
+<div class="content-holder"
+  [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
 </div>
