@@ -14,7 +14,7 @@
 
         <mat-form-field appearance="outline">
           <mat-label>
-            <span>{{ componentStrings.formField.sourceCity + ' ' + componentStrings.formField.mandatoryIndicator }}</span>
+            <span>{{ componentStrings.formField.sourceCity }}</span>
           </mat-label>
           <input matInput
             type="text"
@@ -31,7 +31,7 @@
             mat-icon-button
             matSuffix
             type="button"
-            *ngIf="createTripForm.get('sourceCity').value"
+            *ngIf="createTripForm.get('sourceCity').value !== ''"
             (click)="clearInput(createTripForm.get('sourceCity'))">
             <mat-icon>close</mat-icon>
           </button>
@@ -39,11 +39,10 @@
 
         <mat-form-field appearance="outline">
           <mat-label>
-            <span>{{ componentStrings.formField.startDate + ' ' + componentStrings.formField.mandatoryIndicator }}</span>
+            <span>{{ componentStrings.formField.startDate }}</span>
           </mat-label>
           <input matInput
             [matDatepicker]="startDatePicker"
-            [placeholder]="componentStrings.formField.startDate + ' ' + componentStrings.formField.mandatoryIndicator"
             formControlName="startDate">
           <mat-datepicker-toggle matSuffix
             [for]="startDatePicker"></mat-datepicker-toggle>
@@ -59,7 +58,17 @@
           </mat-error>
         </mat-form-field>
 
-        <div class="optional-field-group">
+        <div class="toggle-holder">
+          <mat-slide-toggle color="primary"
+            formControlName="indefiniteCheck">{{ componentStrings.formField.checkbox.label }}</mat-slide-toggle>
+          <div class="toggle-hint">
+            <mat-hint>{{ componentStrings.formField.checkbox.assistText }}</mat-hint>
+          </div>
+        </div>
+
+        <div class="optional-field-group"
+          *ngIf="!createTripForm.get('indefiniteCheck').value"
+          [@wanderAnimation]>
 
           <mat-form-field appearance="outline">
             <mat-label>
@@ -68,7 +77,6 @@
             <input matInput
               [matDatepicker]="endDatePicker"
               [min]="createTripForm.get('startDate').value"
-              [placeholder]="componentStrings.formField.endDate"
               formControlName="endDate">
             <mat-datepicker-toggle matSuffix
               [for]="endDatePicker"></mat-datepicker-toggle>

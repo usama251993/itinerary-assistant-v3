@@ -40,6 +40,9 @@ export class IaAppStringconstantsService {
     this.appStrings['createTrip']['formField']['endDate'] = 'End Date';
     this.appStrings['createTrip']['formField']['invalidDateError'] = 'Enter the date in "MM/DD/YYYY"';
     this.appStrings['createTrip']['formField']['tripStayNights'] = 'Trip Stay Nights';
+    this.appStrings['createTrip']['formField']['checkbox'] = {};
+    this.appStrings['createTrip']['formField']['checkbox']['label'] = 'I\'m a Wanderer';
+    this.appStrings['createTrip']['formField']['checkbox']['assistText'] = 'Check this if your trip lasts indefinitely';
     this.appStrings['createTrip']['formButton'] = {};
     this.appStrings['createTrip']['formButton']['createTrip'] = 'Create Trip';
 

@@ -4,18 +4,17 @@ import {
   style,
   query,
   animate,
-  group
+  group,
+  keyframes
 } from '@angular/animations';
 
 export const IaRouteAnimations = [
   trigger('routeAnimations', [
 
-    transition('homePage => createTripPage', [
+    transition('* => createTripPage', [
 
       style({
         position: 'relative',
-        transform: 'translate(0px, 0px)',
-        opacity: 1
       }),
 
       query(':enter, :leave', style({
@@ -25,34 +24,31 @@ export const IaRouteAnimations = [
         right: '0%',
       })),
 
-      query(':enter', style({
-        transform: 'translate(0px, 50px)',
-        opacity: 0
-      })),
+      query(':enter', style({ opacity: 0 })),
 
       group([
         query(':leave div.button:first-child', animate(
-          '300ms',
-          style({
-            transform: 'translate(-250px, 0px)',
-            opacity: 0
-          })
+          '500ms 250ms cubic-bezier(0.4, 0.0, 1, 1)',
+          keyframes([
+            style({ transform: 'translate(0px, 0px)', opacity: 1, offset: 0 }),
+            style({ transform: 'translate(-250px, 0px)', opacity: 0, offset: 1 }),
+          ]),
         ), { optional: true }),
 
         query(':leave div.button:last-child', animate(
-          '300ms',
-          style({
-            transform: 'translate(250px, 0px)',
-            opacity: 0
-          })
+          '500ms 250ms cubic-bezier(0.4, 0.0, 1, 1)',
+          keyframes([
+            style({ transform: 'translate(0px, 0px)', opacity: 1, offset: 0 }),
+            style({ transform: 'translate(250px, 0px)', opacity: 0, offset: 1 }),
+          ]),
         ), { optional: true }),
 
         query(':enter', animate(
-          '150ms 150ms',
-          style({
-            transform: 'translate(0px)',
-            opacity: 1
-          })
+          '500ms 250ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+          keyframes([
+            style({ transform: 'translate(0px, 50px)', opacity: 0, offset: 0 }),
+            style({ transform: 'translate(0px, 0px)', opacity: 1, offset: 1 }),
+          ]),
         ))
       ])
 
@@ -62,8 +58,6 @@ export const IaRouteAnimations = [
 
       style({
         position: 'relative',
-        transform: 'translate(0px, 0px)',
-        opacity: 1
       }),
 
       query(':enter, :leave', style({
@@ -71,43 +65,36 @@ export const IaRouteAnimations = [
         top: '0%',
         left: '0%',
         right: '0%',
-        transform: 'translate(0px, 0px)',
-        opacity: 1
       })),
 
-      group([
-        query(':enter div.button:first-child',
-          style({
-            transform: 'translate(-250px, 0px)',
-            opacity: 0
-          }),
-          { optional: true }),
+      query(':enter div.button',
+        style({ opacity: 0 }),
+        { optional: true }),
 
-        query(':enter div.button:last-child',
-          style({
-            transform: 'translate(250px, 0px)',
-            opacity: 0
-          }),
-          { optional: true }),
-      ]),
-
-      // group([
       query(':leave', animate(
-        '150ms',
-        style({
-          transform: 'translate(0px, 50px)',
-          opacity: 0
-        })
+        '300ms cubic-bezier(0.4, 0.0, 1, 1)',
+        keyframes([
+          style({ transform: 'translate(0px, 0px)', opacity: 1, offset: 0 }),
+          style({ transform: 'translate(0px, 50px)', opacity: 0, offset: 1 }),
+        ]),
       ), { optional: true }),
 
-      query(':enter div.button', animate(
-        '300ms',
-        style({
-          transform: 'translate(0px, 0px)',
-          opacity: 1
-        })
-      ), { optional: true }),
-      // ])
+      group([
+        query(':enter div.button:first-child', animate(
+          '300ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+          keyframes([
+            style({ transform: 'translate(-250px, 0px)', opacity: 0, offset: 0 }),
+            style({ transform: 'translate(0px, 0px)', opacity: 1, offset: 1 }),
+          ]),
+        ), { optional: true }),
+        query(':enter div.button:last-child', animate(
+          '300ms cubic-bezier(0.0, 0.0, 0.2, 1)',
+          keyframes([
+            style({ transform: 'translate(250px, 0px)', opacity: 0, offset: 0 }),
+            style({ transform: 'translate(0px, 0px)', opacity: 1, offset: 1 }),
+          ]),
+        ), { optional: true }),
+      ])
 
     ]),
   ])

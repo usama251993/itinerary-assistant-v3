@@ -10,9 +10,6 @@ div.form-holder {
 
   form {
     mat-card {
-      // min-width: 10rem;
-      // max-width: 25rem;
-
       mat-card-content {
         display: flex;
         flex-direction: column;
@@ -20,6 +17,25 @@ div.form-holder {
           display: flex;
           flex-direction: column;
           flex: 1;
+        }
+
+        div.toggle-holder {
+          div.slide-toggle-holder {
+            flex-direction: row;
+            div.slide-toggle-label {
+              flex: 1;
+            }
+          }
+          div.toggle-hint {
+            flex-direction: row;
+            align-items: center;
+            padding-bottom: 1rem;
+            font-size: 75%;
+
+            fa-icon {
+              margin: 0px 12px 0px 4px;
+            }
+          }
         }
 
         div.optional-field-group {

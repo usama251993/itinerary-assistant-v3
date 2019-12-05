@@ -16,8 +16,9 @@ export class IaFormBuilderService {
     this.createTripForm = this.formBuilder.group({
       sourceCity: this.formBuilder.control({ value: '', disabled: false }),
       startDate: this.formBuilder.control({ value: new Date(Date.now()), disabled: true }),
+      indefiniteCheck: this.formBuilder.control({ value: false, disabled: false }),
       endDate: this.formBuilder.control({ value: '', disabled: true }),
-      tripStayNights: this.formBuilder.control({ value: 1, disabled: false })
+      tripStayNights: this.formBuilder.control({ value: 0, disabled: false })
     });
 
     this.today = new Date(Date.now());

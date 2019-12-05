@@ -3,7 +3,7 @@ div {
   flex-direction: column;
 }
 
-div#fab-shadow {
+div.fab-shadow {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -36,9 +36,6 @@ div.fab-action-holder {
 
   mat-card {
     mat-card-content {
-      // div.fab-action-element {
-      //   margin: 0.5rem 0rem;
-      // }
       mat-list {
         mat-list-item {
           cursor: pointer;

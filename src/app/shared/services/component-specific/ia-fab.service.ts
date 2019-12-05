@@ -32,18 +32,17 @@ export class IaFabService {
       {
         itemType: 'slideToggle',
         itemText: 'Dark Theme',
-        itemActions: 'toggleTheme'
+        itemActions: ''
+      },
+      {
+        itemType: 'slideToggle',
+        itemText: 'Toggle Animations',
+        itemActions: ''
       },
       {
         itemType: 'iconButton',
         itemText: 'Home',
         itemIcon: 'home',
-        itemActions: ''
-      },
-      {
-        itemType: 'iconButton',
-        itemText: 'Help',
-        itemIcon: 'question',
         itemActions: ''
       }
     ];
