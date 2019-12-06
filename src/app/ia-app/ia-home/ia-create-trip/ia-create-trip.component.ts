@@ -52,7 +52,7 @@ export class IaCreateTripComponent implements OnInit {
     this.today = this.tripFormBuilder.today;
 
     this.control = {
-      indefiniteCheck: this.createTripForm.get('indefiniteCheck'),
+      isWanderer: this.createTripForm.get('isWanderer'),
       startDate: this.createTripForm.get('startDate'),
       endDate: this.createTripForm.get('endDate'),
       tripStayNights: this.createTripForm.get('tripStayNights')
@@ -72,7 +72,7 @@ export class IaCreateTripComponent implements OnInit {
 
   handleValueChanges() {
 
-    this.control['indefiniteCheck'].valueChanges.subscribe((wanderer: boolean) => {
+    this.control['isWanderer'].valueChanges.subscribe((wanderer: boolean) => {
       if (wanderer) {
         this.control['endDate'].setValue(null);
         this.control['tripStayNights'].setValue(null);

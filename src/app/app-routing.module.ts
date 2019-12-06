@@ -8,6 +8,7 @@ import { IaHomeComponent } from './ia-app/ia-home/ia-home.component';
 import { IaViewTripComponent } from './ia-app/ia-home/ia-view-trip/ia-view-trip.component';
 import { IaViewDayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-day.component';
 import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-stay/ia-view-stay.component';
+import { CanLoadGuard } from './shared/services/guards/can-load.guard';
 
 
 const routes: Routes = [
@@ -15,26 +16,59 @@ const routes: Routes = [
   // { path: '', redirectTo: 'home', pathMatch: 'full' },
 
   {
-    path: '', component: IaAppComponent, children: [
+    path: '',
+    component: IaAppComponent,
+    children: [
 
       // Home
-      { path: 'home', component: IaHomeComponent, data: { animation: 'homePage' } },
-      { path: '', redirectTo: 'home', pathMatch: 'full' },
+      {
+        path: 'home',
+        component: IaHomeComponent,
+        data: { animation: 'homePage' }
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
 
       // Create
-      { path: 'create', component: IaCreateTripComponent, data: { animation: 'createTripPage' } },
+      {
+        path: 'create',
+        component: IaCreateTripComponent,
+        data: { animation: 'createTripPage' }
+      },
 
       // Load
-      { path: 'load', component: IaLoadTripComponent, data: { animation: 'loadTripPage' } },
+      {
+        path: 'load',
+        component: IaLoadTripComponent,
+        data: { animation: 'loadTripPage' }
+      },
 
       // View Trip
-      { path: 'view', component: IaViewTripComponent, data: { animation: 'viewTripPage' } },
+      {
+        path: 'view',
+        component: IaViewTripComponent,
+        data: { animation: 'viewTripPage' },
+        // canLoad: [CanLoadGuard],
+        children: [
 
-      // View Day
-      { path: 'view/day/:date', component: IaViewDayComponent },
+          // View Day
+          {
+            path: 'day/:date',
+            component: IaViewDayComponent
+          },
 
-      // View Stay
-      { path: 'view/day/:date/stay/:stay', component: IaViewStayComponent }
+          // View Stay
+          {
+            path: 'view/day/:date/stay/:stay',
+            component: IaViewStayComponent
+          }
+
+        ]
+      },
+
     ]
   },
 

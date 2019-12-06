@@ -60,14 +60,14 @@
 
         <div class="toggle-holder">
           <mat-slide-toggle color="primary"
-            formControlName="indefiniteCheck">{{ componentStrings.formField.checkbox.label }}</mat-slide-toggle>
+            formControlName="isWanderer">{{ componentStrings.formField.checkbox.label }}</mat-slide-toggle>
           <div class="toggle-hint">
             <mat-hint>{{ componentStrings.formField.checkbox.assistText }}</mat-hint>
           </div>
         </div>
 
         <div class="optional-field-group"
-          *ngIf="!createTripForm.get('indefiniteCheck').value"
+          *ngIf="!createTripForm.get('isWanderer').value"
           [@wanderAnimation]>
 
           <mat-form-field appearance="outline">

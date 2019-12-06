@@ -25,7 +25,9 @@ export class IaAppStateService {
 
   fabToggleState: boolean = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder) { }
 
+  isWanderer(): boolean {
+    return this.createTripForm.get('isWanderer') ? true : false;
   }
 }

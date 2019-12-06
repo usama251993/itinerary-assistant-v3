@@ -27,6 +27,7 @@ import { IaViewDayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia
 import { IaViewStayComponent } from './ia-app/ia-home/ia-view-trip/ia-view-day/ia-view-stay/ia-view-stay.component';
 import { IaFabComponent } from './shared/components/ia-fab/ia-fab.component';
 import { IaMaterialModule } from './ia-material/ia-material.module';
+import { CanLoadGuard } from './shared/services/guards/can-load.guard';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { IaMaterialModule } from './ia-material/ia-material.module';
     IaThemeService,
     IaAppStateService,
     IaFormBuilderService,
-    IaAppStringconstantsService
+    IaAppStringconstantsService,
+    CanLoadGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [

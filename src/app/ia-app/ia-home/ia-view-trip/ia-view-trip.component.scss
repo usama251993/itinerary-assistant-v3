@@ -25,7 +25,7 @@ div.container {
     }
 
     mat-card-content {
-      mat-calendar {
+      mat-calendar.traveller {
         flex: 1;
 
         /deep/ {

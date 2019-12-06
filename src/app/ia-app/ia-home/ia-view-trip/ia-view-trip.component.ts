@@ -13,6 +13,7 @@ export class IaViewTripComponent implements OnInit {
   componentStrings: {} = {};
 
   calendarDates: {} = {};
+  isWanderer: boolean = false;
   localeDateOptions: DateOption = this.stateService.localeDateOptions;
 
   selectedDay: Date = new Date(Date.now());
@@ -31,10 +32,10 @@ export class IaViewTripComponent implements OnInit {
     this.calendarDates = {};
     this.calendarDates['startDate'] = this.stateService.createTripForm.getRawValue()['startDate'];
     this.calendarDates['endDate'] = this.stateService.createTripForm.getRawValue()['endDate'];
+    this.isWanderer = this.stateService.createTripForm.getRawValue()['isWanderer'];
 
-
-    if (this.calendarDates['startDate'] === undefined || this.calendarDates['endDate'] === undefined) {
-      // this.router.navigate(['../' + 'create'], { relativeTo: this.route });
+    if (this.isWanderer === undefined) {
+      this.router.navigate(['../' + 'create'], { relativeTo: this.route });
     } else {
       this.selectedDay = this.calendarDates['startDate'];
     }
@@ -48,7 +49,6 @@ export class IaViewTripComponent implements OnInit {
   editDay(selectedDate: Date) {
     let selectedDateString: string = this.selectedDay.getFullYear().toString() + '-' + ('00' + (this.selectedDay.getMonth() + 1).toString()).slice(-2) + '-' + ('00' + this.selectedDay.getDate().toString()).slice(-2);
     this.router.navigate(['./day/' + selectedDateString], { relativeTo: this.route });
-
   }
 
 }
