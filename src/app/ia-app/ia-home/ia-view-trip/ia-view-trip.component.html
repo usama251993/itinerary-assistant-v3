@@ -7,16 +7,16 @@
     </mat-card-header>
     <mat-card-content>
       <mat-calendar class="traveller"
-        *ngIf="!isWanderer; else wandererTrip"
-        [selected]="selectedDay"
-        [minDate]="calendarDates['startDate']"
-        [maxDate]="calendarDates['endDate']"
-        (selectedChange)="dateChanged($event)"></mat-calendar>
+                    *ngIf="!isWanderer; else wandererTrip"
+                    [selected]="selectedDay"
+                    [minDate]="calendarDates['startDate']"
+                    [maxDate]="calendarDates['endDate']"
+                    (selectedChange)="dateChanged($event)"></mat-calendar>
       <ng-template #wandererTrip>
         <mat-calendar class="wanderer"
-          [selected]="selectedDay"
-          [minDate]="calendarDates['startDate']"
-          (selectedChange)="dateChanged($event)"></mat-calendar>
+                      [selected]="selectedDay"
+                      [minDate]="calendarDates['startDate']"
+                      (selectedChange)="dateChanged($event)"></mat-calendar>
       </ng-template>
     </mat-card-content>
     <mat-card-actions></mat-card-actions>
@@ -38,9 +38,9 @@
       <div class="button-holder">
         <div class="button">
           <button type="button"
-            mat-flat-button
-            color="primary"
-            (click)="editDay(selectedDay)">
+                  mat-flat-button
+                  color="primary"
+                  (click)="editDay(selectedDay)">
             {{ componentStrings.button.editDay }}
           </button>
         </div>

@@ -2,20 +2,20 @@
 
   <!-- Ripple Layout -->
   <div class="button"
-    matRipple
-    matRippleRadius="100"
-    matRippleCentered="true"
-    (click)="createTrip()">
+       matRipple
+       matRippleRadius="100"
+       matRippleCentered="true"
+       (click)="createTrip()">
     <div class="button-content">
       <fa-icon [icon]="['fas', 'hiking']"></fa-icon>
       <span>{{ componentStrings.buttonHolder.createTrip }}</span>
     </div>
   </div>
   <div class="button"
-    matRipple
-    matRippleRadius="100"
-    matRippleCentered="true"
-    (click)="loadTrip()">
+       matRipple
+       matRippleRadius="100"
+       matRippleCentered="true"
+       (click)="loadTrip()">
     <div class="button-content">
       <fa-icon [icon]="['fas', 'upload']"></fa-icon>
       <span>{{ componentStrings.buttonHolder.loadTrip }}</span>

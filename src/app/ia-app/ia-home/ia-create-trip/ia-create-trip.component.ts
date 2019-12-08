@@ -44,7 +44,6 @@ export class IaCreateTripComponent implements OnInit {
 
   ngOnInit() {
 
-
     this.componentStrings = this.stringConstants.appStrings['createTrip'];
 
     this.createTripForm = this.formBuilder.group({});
@@ -114,7 +113,6 @@ export class IaCreateTripComponent implements OnInit {
   get isMobile(): boolean {
     return this.breakPoint.isMatched('(max-width: 767px)');
   }
-
 
   createTrip() {
     this.stateService.createTripForm = this.createTripForm;

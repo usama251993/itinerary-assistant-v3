@@ -1,6 +1,6 @@
 <div class="form-holder">
   <form (ngSubmit)="createTrip()"
-    [formGroup]="createTripForm">
+        [formGroup]="createTripForm">
     <mat-card>
       <mat-card-header>
 
@@ -17,22 +17,22 @@
             <span>{{ componentStrings.formField.sourceCity }}</span>
           </mat-label>
           <input matInput
-            type="text"
-            autofocus="true"
-            color="primary"
-            formControlName="sourceCity"
-            #sourceCityInput />
+                 type="text"
+                 autofocus="true"
+                 color="primary"
+                 formControlName="sourceCity"
+                 #sourceCityInput />
 
           <mat-error *ngIf="createTripForm.get('sourceCity').hasError('required')">
             <span>{{ componentStrings.formField.sourceCityError }}</span>
           </mat-error>
 
           <button mat-button
-            mat-icon-button
-            matSuffix
-            type="button"
-            *ngIf="createTripForm.get('sourceCity').value !== ''"
-            (click)="clearInput(createTripForm.get('sourceCity'))">
+                  mat-icon-button
+                  matSuffix
+                  type="button"
+                  *ngIf="createTripForm.get('sourceCity').value !== ''"
+                  (click)="clearInput(createTripForm.get('sourceCity'))">
             <mat-icon>close</mat-icon>
           </button>
         </mat-form-field>
@@ -42,13 +42,13 @@
             <span>{{ componentStrings.formField.startDate }}</span>
           </mat-label>
           <input matInput
-            [matDatepicker]="startDatePicker"
-            formControlName="startDate">
+                 [matDatepicker]="startDatePicker"
+                 formControlName="startDate">
           <mat-datepicker-toggle matSuffix
-            [for]="startDatePicker"></mat-datepicker-toggle>
+                                 [for]="startDatePicker"></mat-datepicker-toggle>
           <mat-datepicker #startDatePicker
-            [touchUi]="isMobile"
-            disabled="false"></mat-datepicker>
+                          [touchUi]="isMobile"
+                          disabled="false"></mat-datepicker>
 
           <mat-error *ngIf="createTripForm.get('startDate').hasError('required')">
             <span>{{ componentStrings.formField.startDateError }}</span>
@@ -60,30 +60,31 @@
 
         <div class="toggle-holder">
           <mat-slide-toggle color="primary"
-            formControlName="isWanderer">{{ componentStrings.formField.checkbox.label }}</mat-slide-toggle>
+                            formControlName="isWanderer">{{ componentStrings.formField.checkbox.label }}
+          </mat-slide-toggle>
           <div class="toggle-hint">
             <mat-hint>{{ componentStrings.formField.checkbox.assistText }}</mat-hint>
           </div>
         </div>
 
         <div class="optional-field-group"
-          *ngIf="!createTripForm.get('isWanderer').value"
-          [@wanderAnimation]>
+             *ngIf="!createTripForm.get('isWanderer').value"
+             [@wanderAnimation]>
 
           <mat-form-field appearance="outline">
             <mat-label>
               <span>{{ componentStrings.formField.endDate }}</span>
             </mat-label>
             <input matInput
-              [matDatepicker]="endDatePicker"
-              [min]="createTripForm.get('startDate').value"
-              formControlName="endDate">
+                   [matDatepicker]="endDatePicker"
+                   [min]="createTripForm.get('startDate').value"
+                   formControlName="endDate">
             <mat-datepicker-toggle matSuffix
-              [for]="endDatePicker"></mat-datepicker-toggle>
+                                   [for]="endDatePicker"></mat-datepicker-toggle>
             <mat-datepicker #endDatePicker
-              [touchUi]="isMobile"
-              [dateClass]="highlightEndDate"
-              disabled="false"></mat-datepicker>
+                            [touchUi]="isMobile"
+                            [dateClass]="highlightEndDate"
+                            disabled="false"></mat-datepicker>
 
             <mat-error *ngIf="createTripForm.get('endDate').hasError('invalidDate')">
               <span>{{ componentStrings.formField.invalidDateError }}</span>
@@ -93,16 +94,16 @@
           <mat-form-field appearance="outline">
             <mat-label>{{ componentStrings.formField.tripStayNights }}</mat-label>
             <input matInput
-              type="number"
-              min="0"
-              formControlName="tripStayNights" />
+                   type="number"
+                   min="0"
+                   formControlName="tripStayNights" />
 
             <button mat-button
-              mat-icon-button
-              matSuffix
-              *ngIf="createTripForm.get('tripStayNights').value"
-              type="button"
-              (click)="clearInput(createTripForm.get('tripStayNights'))">
+                    mat-icon-button
+                    matSuffix
+                    *ngIf="createTripForm.get('tripStayNights').value"
+                    type="button"
+                    (click)="clearInput(createTripForm.get('tripStayNights'))">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
@@ -115,11 +116,11 @@
 
         <div class="button-holder">
           <div class="button"
-            id="create-trip">
+               id="create-trip">
             <button mat-flat-button
-              type="submit"
-              color="primary"
-              [disabled]="!createTripForm.valid">
+                    type="submit"
+                    color="primary"
+                    [disabled]="!createTripForm.valid">
               <span>Create Trip</span>
             </button>
           </div>

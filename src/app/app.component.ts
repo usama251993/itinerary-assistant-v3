@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 
 import { Observable } from 'rxjs';
 import { IaThemeService } from './shared/services/theming/ia-theme.service';

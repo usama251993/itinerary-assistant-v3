@@ -1,4 +1,4 @@
-@import '~@angular/material/theming';
+@import "~@angular/material/theming";
 @include mat-core();
 
 div {
@@ -29,7 +29,7 @@ div.container {
         flex: 1;
 
         /deep/ {
-          td.mat-calendar-body-cell:not([aria-disabled='true']) {
+          td.mat-calendar-body-cell:not([aria-disabled="true"]) {
             font-weight: 900;
           }
         }
